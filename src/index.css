@@ -1,0 +1,156 @@
+:root {
+  --primary: #0000ff;
+  --field-menu: #5efc8d;
+  --field-settings: #cccccc;
+  --field-site: #1a231a;
+  --field-desk: #388f42;
+  background-color: var(--field-site);
+}
+
+body {
+  font-family: Helvetica;
+}
+
+.field-connetion {
+  
+}
+.field-settings {
+  background-color: var(--field-settings);
+  padding: 0 25px;
+}
+.field-desk,
+.field-winners {
+  background-color: var(--field-desk);
+  padding: 15px;
+}
+.field-states {
+  color:white;
+}
+.form-settings {
+  padding: 0;
+}
+.form-desk {
+  padding: 30px;
+}
+
+.ui-button {
+  background-color: var(--field-site);
+  color: white;
+  border: 0;
+  padding: 15px 20px;
+  min-width: 150px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ui-button:hover {
+  opacity: 0.8;
+}
+
+.ui-button:disabled {
+  opacity: 0.4;
+  cursor: disabled;
+}
+
+.ui-button:active {
+  box-shadow: 0 0px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+.ui-button-on {
+  background-color: green;
+  color: white;
+  border: 0;
+  padding: 15px 20px;
+  min-width: 150px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ui-button-off {
+  background-color: red;
+  color: white;
+  border: 0;
+  padding: 15px 20px;
+  min-width: 150px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+[class^="ui-"] {
+  margin: 10px;
+}
+.tableResult {
+  border-collapse: collapse;
+  text-align: center;   
+}
+.tablePlayers {
+  border: '2px solid #f0f0f0';
+  border-collapse: 'collapse';
+}
+.tableResColumns {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+    border: 2px solid #f0f0f0;
+}
+.tableColumns {
+  background-color: '#c0c0c0';
+  color: #000;
+  border: 2px solid #f0f0f0;
+  padding: 15px;
+}
+.tableResRows {
+  background-color: '#e5e5e5';
+  color: '#010101';
+  
+  border: 2px solid #f0f0f0;
+}
+
+.tableCardsRows {
+  background-color: '#e5e5e5';
+  color: '#010101';
+  
+  /* border: 2px solid #f0f0f0; */
+}
+.tableRows {
+  background-color: '#e5e5e5';
+  color: '#010101';
+  padding: 15px;
+}
+.tableDesk {
+  border: '2px solid #f0f0f0';
+  background-color: #cccccc;
+  padding: 15px;
+}
+
+  /* 
+  rowEven: {
+      backgroundColor: '#e5e5e5',
+      color: '#010101'
+  },
+  rowOdd: {
+      backgroundColor: '#f0f0f0',
+      color: '#010101'
+  },
+  cell: {
+      textAlign: 'left',
+      fontSize: '.75rem',
+      padding: '5px'
+
+  button: {
+      display: 'inline-block',
+      color: '#010101',
+      backgroundColor: '#c0c0c0',
+      border: '2px solid #c0c0c0',
+      fontWeight: 'bold'
+  } */
