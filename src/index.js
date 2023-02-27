@@ -81,6 +81,7 @@ function App() {
     <>
       <div className="field-connetion">
         <button className={isConnect ? "ui-button-on" : "ui-button-off"}
+                hidden
                 onClick={handleConnect}> {isConnect ? "On":"Off"}
         </button>     
       </div> 
