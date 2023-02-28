@@ -96,7 +96,7 @@ export function FindWinners() {
 
         console.log("win",win);
     }
-    return itemWinner;
+    return <div className="field-winners">{itemWinner}</div>;
     
 }
 

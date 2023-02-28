@@ -14,15 +14,26 @@ body {
 .field-connetion {
   
 }
+.field-info {
+  
+}
 .field-settings {
   background-color: var(--field-settings);
   padding: 0 25px;
 }
-.field-desk,
-.field-winners {
+.field-desk {
   background-color: var(--field-desk);
   padding: 15px;
+
 }
+
+.field-winners {
+  background-color: yellow;
+  padding: 15px;
+  color: darkred;
+  font-weight: bold;
+}
+
 .field-states {
   color:white;
 }

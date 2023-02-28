@@ -21,7 +21,7 @@ export default function Settings({isConnect,
                     onChange={onNumPlayers}
                     value = {numPlayers}
                     // disabled={!isConnect}
-                    disabled={true}                    
+                    disabled = {true}
                     >
                 <option>2</option>
                 <option>3</option>
@@ -35,8 +35,7 @@ export default function Settings({isConnect,
                 onChange={onNumHands}
                 value = {numHands} 
                 // disabled={!isConnect }
-                disabled={true}   
-                />
+                disabled = {true}/>
             <label htmlFor="numDesk">Num desk: </label>
             <input id="numHandsAddDesk"
                 type="text"
@@ -44,14 +43,14 @@ export default function Settings({isConnect,
                 onChange={onNumDesk}
                 value = {numDesk} 
                 // disabled={!isConnect}
-                disabled={true}   
-                />
+                disabled = {true}/>
             
             <input className="ui-button"
                 type="submit" 
                 value="PLAY"
                 onClick={onFormSubmit} 
-                disabled={!isConnect}/>
+                // disabled={!isConnect}
+                />
 
             <button className="ui-button"
                   onClick={onEstimates}>RESULT

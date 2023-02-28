@@ -80,8 +80,7 @@ function App() {
     return (  
     <>
       <div className="field-connetion">
-        <button className={isConnect ? "ui-button-on" : "ui-button-off"}
-                hidden
+        <button hidden className={isConnect ? "ui-button-on" : "ui-button-off"}
                 onClick={handleConnect}> {isConnect ? "On":"Off"}
         </button>     
       </div> 
@@ -97,7 +96,7 @@ function App() {
                   onEstimates={handleEstimates}
                   />        
       </div>
-      <div className="field-winners">
+      <div className="field-info">
             {itemsWinners}
             
       </div>
