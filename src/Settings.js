@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 
 export default function Settings({isConnect,
+                                isRes,
                                 numPlayers,
                                 numHands,
                                 numDesk,
@@ -8,7 +9,8 @@ export default function Settings({isConnect,
                                 onNumHands,
                                 onNumDesk,
                                 onFormSubmit,
-                                onEstimates
+                                onEstimates,
+                                onSaveDeal
                                 }) {
   
 
@@ -53,7 +55,15 @@ export default function Settings({isConnect,
                 />
 
             <button className="ui-button"
-                  onClick={onEstimates}>RESULT
+                    type="button"
+                  onClick={onEstimates}
+                  disabled={isRes}>RESULT
+            </button> 
+            <button hidden
+                    className="ui-button"
+                    type="button"
+                    onClick={onSaveDeal}>
+                    Report 
             </button> 
            
         </form>

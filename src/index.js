@@ -9,12 +9,14 @@ import {InitDesk,
   handsCards, 
   DealSecondCards, 
   CheckCombinations,
-  FindWinners
+  FindWinners,
+  SaveDeal
   } from "./LibPok.js";
 
 function App() {
   const [state, setState] = useState(0);
   const [isConnect, setIsConnect] = useState(true);
+  const [isRes, setIsRes] = useState(true);
 
   const [numPlayers, setNumPlayers] = useState(5);
   const [numHands, setNumHands] = useState(2);
@@ -31,6 +33,7 @@ function App() {
 
       setWinners("");
       setItemsCombinations("");
+      setIsRes(false);
       // setIsConnect(!isConnect);
       
       const i = InitDesk(numPlayers, numHands);
@@ -74,6 +77,11 @@ function App() {
     setItemsCombinations(i);
     const w = FindWinners();
     setWinners(w);
+    setIsRes(true);
+  }
+
+  function handleSaveDeal() {
+    SaveDeal();
   }
  
  
@@ -86,6 +94,7 @@ function App() {
       </div> 
       <div className="field-settings">
         <Settings isConnect={isConnect}
+                  isRes = {isRes}
                   numPlayers={numPlayers}
                   numHands={numHands}
                   numDesk={numDesk}
@@ -94,6 +103,7 @@ function App() {
                   onNumDesk={handleNumDesk}
                   onFormSubmit={handleFormSubmit}
                   onEstimates={handleEstimates}
+                  onSaveDeal={handleSaveDeal}
                   />        
       </div>
       <div className="field-info">

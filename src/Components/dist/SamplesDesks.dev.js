@@ -256,35 +256,70 @@ exports.SampleDeskCards = exports.SampleHandsCards = void 0;
 //     {suit:"d",rank: 12},
 //     {suit:"d",rank: 13}
 // ]
+// // //TWO PAIRS
+// export let SampleHandsCards = [[
+//     {suit:"s",rank: 7},
+//     {suit:"d",rank: 4}
+// ],
+// [
+//     {suit:"s",rank: 4},
+//     {suit:"c",rank: 3}
+// ]
+// ];
+// export let  SampleDeskCards =  [
+//     {suit:"s",rank: 8},
+//     {suit:"d",rank: 3},
+//     {suit:"c",rank: 7},
+//     {suit:"h",rank: 14},
+//     {suit:"s",rank: 14}
+// ]
 // //TWO PAIRS
 var SampleHandsCards = [[{
   suit: "s",
-  rank: 7
+  rank: 2
 }, {
-  suit: "d",
-  rank: 4
+  suit: "s",
+  rank: 3
 }], [{
   suit: "s",
-  rank: 4
+  rank: 12
 }, {
   suit: "c",
-  rank: 3
+  rank: 6
+}], [{
+  suit: "c",
+  rank: 9
+}, {
+  suit: "c",
+  rank: 4
+}], [{
+  suit: "h",
+  rank: 12
+}, {
+  suit: "c",
+  rank: 2
+}], [{
+  suit: "d",
+  rank: 11
+}, {
+  suit: "h",
+  rank: 9
 }]];
 exports.SampleHandsCards = SampleHandsCards;
 var SampleDeskCards = [{
   suit: "s",
-  rank: 8
-}, {
-  suit: "d",
-  rank: 3
-}, {
-  suit: "c",
   rank: 7
 }, {
-  suit: "h",
-  rank: 14
+  suit: "d",
+  rank: 7
+}, {
+  suit: "d",
+  rank: 5
+}, {
+  suit: "d",
+  rank: 10
 }, {
   suit: "s",
-  rank: 14
+  rank: 5
 }];
 exports.SampleDeskCards = SampleDeskCards;

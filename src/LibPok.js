@@ -1,6 +1,7 @@
 import { flushSync } from "react-dom";
 import {SampleHandsCards, SampleDeskCards} from "./Components/SamplesDesks.js";
 import Card from "./Card.js";
+import CardText from "./CardText.js";
 
  //пики бубны червы трефы ["spades", "diamonds", "hearts", "clubs"];
  const suits = ["s", "d", "h", "c"];
@@ -10,13 +11,21 @@ import Card from "./Card.js";
 
 export let arrCards, handsCards, deskCards;
 
-let SETSAMPLES = false;
+let SETSAMPLES = true;
 let SETDEBUG_STREET = false;
 let SETDEBUG_FLASH = false;
 let SETDEBUG_PAIRS = false;
+let SETDEBUG_WINNERS = true;
 
 let res = [];
 let win = [];
+
+export function SaveDeal() {
+    console.log(handsCards);
+    console.log(res);
+    
+    // console.log("done");
+}
 
 //Вывод всех, вывод во флеше, если первая пара одинаковая - победитель по большей второй
 export function FindWinners() {
@@ -34,12 +43,12 @@ export function FindWinners() {
        return arr.id;
     }).sort((a,b)=>a-b).slice(0,1)[0];
 
-    // console.log("winnerRating",winnerRating);
+    if (SETDEBUG_WINNERS) console.log("winnerRating",winnerRating);
 
     playersRatings = res.filter(item => item.id === winnerRating);   
     
     if (playersRatings.length == 1) {
-        // console.log("Winner: Player_", playersRatings[0].player + 1);
+        if (SETDEBUG_WINNERS) console.log("Winner: Player_", playersRatings[0].player + 1);
 
         itemWinner = <p>Winner: Player_{playersRatings[0].player + 1}</p>
         
@@ -50,11 +59,11 @@ export function FindWinners() {
             return arr.main;
         }).sort((a,b)=>b-a).slice(0,1)[0];
 
-        // console.log("winnerMainCard",winnerMainCard);
+        if (SETDEBUG_WINNERS) console.log("winnerMainCard",winnerMainCard);
 
         playersRaitingMainCard = playersRatings.filter(item => item.main === winnerMainCard);
 
-        // console.log("playersRaitingMainCard",playersRaitingMainCard);
+        if (SETDEBUG_WINNERS) console.log("playersRaitingMainCard",playersRaitingMainCard);
 
         if (playersRaitingMainCard.length === 1) {            
             itemWinner = <>           
@@ -77,17 +86,28 @@ export function FindWinners() {
                 }).sort((a,b)=>b-a).slice(0,1)[0];
 
                 playersRaitingMainJunCards = playersRaitingMainCard.filter(item => item.junior === winnerJunCard);
+                if (SETDEBUG_WINNERS) console.log("playersRaitingMainJunCards",playersRaitingMainJunCards);
                 
-                itemWinner = <>           
+                
+                        
+                if (playersRaitingMainJunCards.length === 1) {
+
+                    itemWinner = <>           
                         Winner: Player_{playersRaitingMainJunCards[0].player + 1}! Congradulates!     
                         </>
-                if (playersRaitingMainJunCards.length === 1) {
+
                     win.push(JSON.parse(JSON.stringify(playersRaitingMainJunCards[0].player)));
-                    //console.log(playersRaitingMainJunCards[0].player);
+                    if (SETDEBUG_WINNERS) console.log(playersRaitingMainJunCards[0].player);
                 }
                 else {
-                    playersRaitingMainJunCards.forEach(i=>{
-                        
+
+                    itemWinner = <>           
+                            <p>{playersRaitingMainJunCards.length} winners! Congradulates!</p>  
+                            {playersRaitingMainJunCards.map(i => <p>Player_{i.player+1}</p>)}
+                        </>
+
+
+                    playersRaitingMainJunCards.forEach(i=>{                        
                         win.push(JSON.parse(JSON.stringify(i.player)))});
                 }
             }}
@@ -207,6 +227,14 @@ export function DealSecondCards(numPlayers, numHands, numDesk) {
                <Card suit={item.suit} rank={item.rank} />
               )
     });
+
+    handsCards.map((item)=>{
+        item.push(...deskCards)
+      });
+      handsCards.forEach((item)=>{
+          item.sort((x, y) => x.rank - y.rank)
+      });
+      
     return itemsDesk;
 }
 
@@ -215,13 +243,9 @@ export function CheckCombinations() {
      //   //сборка комбинаций
 
     res = [];
+    win = [];
     
-    handsCards.map((item)=>{
-      item.push(...deskCards)
-    });
-    handsCards.forEach((item)=>{
-        item.sort((x, y) => x.rank - y.rank)
-    });
+   
 
     
     let isFindCombination = false;
@@ -321,7 +345,7 @@ export function CheckCombinations() {
                     : <tr className="tableResRows">{item.junior}</tr>}
             {(item.id != 9) 
                     ? <tr className="tableCardsRows">
-                        {item.cards.map(i => <Card rank={i.rank} suit={i.suit} />)}</tr> 
+                        {item.cards.map(i => <CardText rank={i.rank} suit={i.suit} />)}</tr> 
                     : <tr className="tableResRows">-</tr>}
         </td>)
     });
