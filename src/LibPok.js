@@ -11,11 +11,11 @@ import CardText from "./CardText.js";
 
 export let arrCards, handsCards, deskCards;
 
-let SETSAMPLES = true;
+let SETSAMPLES = false;
 let SETDEBUG_STREET = false;
 let SETDEBUG_FLASH = false;
 let SETDEBUG_PAIRS = false;
-let SETDEBUG_WINNERS = true;
+let SETDEBUG_WINNERS = false;
 
 let res = [];
 let win = [];
